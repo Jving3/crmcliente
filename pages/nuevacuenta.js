@@ -24,6 +24,8 @@ const NuevaCuenta = () => {
     // Mutation para crear nuevos usuarios
     const [ nuevoUsuario ] = useMutation(NUEVA_CUENTA);
     
+    // Routing
+    const router = useRouter();
 
     // Validación del formulario
     const formik = useFormik({
@@ -64,9 +66,15 @@ const NuevaCuenta = () => {
                 console.log(data);
 
                 // Usuario creado correctamente
+                guardarMensaje(`Se creo correctamente el Usuario: ${data.nuevoUsuario.nombre} `);
 
-                // Redirigir usuario para iniciar sesion
-                
+                setTimeout(() => {
+                    guardarMensaje(null);
+                    router.push('/login')
+                }, 3000);
+
+                // Redirigir usuario para iniciar sesión
+
             } catch (error) {
                 guardarMensaje(error.message.replace('GraphQL error: ', ''));
 
