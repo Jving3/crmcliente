@@ -246,4 +246,3 @@ const NuevoCliente = () => {
 }
  
 export default NuevoCliente;
-

@@ -16,6 +16,7 @@ const NUEVA_CUENTA = gql`
     }
 `;
 
+
 const NuevaCuenta = () => {
 
     // State para el mensaje
@@ -23,9 +24,11 @@ const NuevaCuenta = () => {
 
     // Mutation para crear nuevos usuarios
     const [ nuevoUsuario ] = useMutation(NUEVA_CUENTA);
-    
+
     // Routing
     const router = useRouter();
+
+
 
     // Validación del formulario
     const formik = useFormik({
@@ -51,6 +54,7 @@ const NuevaCuenta = () => {
             // console.log('enviando');
             // console.log(valores);
             const { nombre, apellido, email, password } = valores
+            
 
             try {
                 const { data } = await nuevoUsuario({
@@ -85,6 +89,7 @@ const NuevaCuenta = () => {
         }
     });
 
+
     // if(loading) return 'Cargando...';
 
     const mostrarMensaje = () => {
@@ -94,7 +99,7 @@ const NuevaCuenta = () => {
             </div>
         )
     }
-    
+
     return ( 
 
         <>
